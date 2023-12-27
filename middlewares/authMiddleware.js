@@ -18,10 +18,10 @@ var checkUserAuth = async (req, res, next) => {
       ]);
 
       // Remove password from the user object
-      if (req.user) {
-        delete req.user.password;
+      if (req.user.rows[0]) {
+        delete req.user.rows[0].password;
       }
-      console.log(req.user.rows[0]);
+      //console.log(req.user.rows[0]);
 
       next();
     } catch (error) {
